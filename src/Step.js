@@ -2,7 +2,7 @@ import _ from 'lodash' //eslint-disable-line
 import React, {Component} from 'react'
 import ReactDOM from 'react-dom'
 import classNames from 'classnames'
-import TransitionEvents from 'react-bootstrap/lib/utils/TransitionEvents'
+import TransitionEvents from './TransitionEvents'
 
 export default class Step extends Component {
 
