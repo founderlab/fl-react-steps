@@ -11,7 +11,7 @@ Usage:
 -------------
 
 ```javascript
-import {StepHeader, Steps, Step} from 'fl-react-steps'
+import {Step, Steps, StepHeader} from 'fl-react-steps'
 
 export default class SteppedForm extends React.Component {
   
