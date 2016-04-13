@@ -13,6 +13,9 @@ Usage:
 ```javascript
 import {Step, Steps, StepHeader} from 'fl-react-steps'
 
+// Check client/style.scss for variables you can override
+import 'fl-react-steps/client/style.scss'
+
 export default class SteppedForm extends React.Component {
   
   constructor() {
@@ -55,7 +58,7 @@ export default class SteppedForm extends React.Component {
 
 
 StepHeader props: 
------------------------
+-----------------
 ```
 step: The currenly active step 
 headings: A list of titles for your steps
