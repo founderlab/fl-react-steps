@@ -4,6 +4,7 @@
 
 Changes: 
 -------------
+- 0.2.0: Public-ed
 - 0.1.0: Created
 
 
