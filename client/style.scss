@@ -1,11 +1,17 @@
-$step-font-size: 18px !default;
+
 $complete-color: #5BE5B9 !default;
 $dot-color: #75CAEB !default;
+
+$text-color: #333 !default;
 $text-active-color: #fff !default;
+$text-disabled-color: #999 !default;
+
 $dot-size: 20px !default;
 $dot-size-xs: 20px !default;
 $dot-active-size: 100px !default;
 $dot-active-size-xs: 70px !default;
+
+$step-font-size: 18px !default;
 $step-height: 180px !default;
 $step-height-xs: 130px !default;
 
@@ -21,12 +27,12 @@ $step-height-xs: 130px !default;
     height: $step-height;
 
     &.disabled {
-      color: $gray-light;
+      color: $text-disabled-color;
     }
 
     &:hover:not(.disabled) {
       cursor: pointer;
-      color: $brand-info;
+      color: $dot-color;
       .dot {
         width: 30px;
         height: 30px;
@@ -61,7 +67,7 @@ $step-height-xs: 130px !default;
         background: $complete-color;
       }
       .text {
-        color: $gray;
+        color: $text-color;
       }
     }
     &.complete:hover .text {
@@ -69,7 +75,8 @@ $step-height-xs: 130px !default;
     }
 
     .text {
-      @include transition(all 0.5s);
+      transition: all 0.5s;
+      color: $text-color;
       display: table;
       height: 66px;
       width: 100%;
@@ -86,7 +93,7 @@ $step-height-xs: 130px !default;
       }
     }
     .dot {
-      @include transition(all 0.5s);
+      transition: all 0.5s;
       z-index: 2;
       background: $dot-color;
 
@@ -102,7 +109,7 @@ $step-height-xs: 130px !default;
       margin-top: -$dot-size/2;
     }
     .bar {
-      @include transition(all 0.5s);
+      transition: all 0.5s;
       z-index: 1;
       background: $dot-color;
 
