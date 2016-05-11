@@ -25,8 +25,8 @@ export default class StepHeader extends Component {
     this.state = {max_step: 1}
   }
 
-  componentWillReceiveProps(new_props) {
-    if (new_props.step > this.state.max_step) this.setState({max_step: new_props.step})
+  componentWillReceiveProps(newProps) {
+    if (newProps.step > this.state.max_step) this.setState({max_step: newProps.step})
   }
 
   stepEnabled = step => step <= Math.max(this.state.max_step, this.props.step)

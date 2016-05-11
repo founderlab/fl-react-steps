@@ -21,11 +21,11 @@ export default class Step extends Component {
     }
   }
 
-  componentWillReceiveProps(next_props) {
-    if (!this.state.animate_in && next_props.active && !this.props.active) {
+  componentWillReceiveProps(nextProps) {
+    if (!this.state.animate_in && nextProps.active && !this.props.active) {
       this.setState({animate_in: true})
     }
-    else if (!this.state.animate_out && !next_props.active && this.props.active) {
+    else if (!this.state.animate_out && !nextProps.active && this.props.active) {
       this.setState({animate_out: true})
     }
   }

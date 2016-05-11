@@ -10,18 +10,18 @@ export default class Steps extends Component {
 
   constructor() {
     super()
-    this.state = {prev_step: null}
+    this.state = {prevStep: null}
   }
 
-  componentWillReceiveProps(next_props) {
-    if (next_props.step !== null && next_props.step !== this.props.step) {
-      // check if the 'prev_step' child still exists
-      const prev_step = this.props.step
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.step !== null && nextProps.step !== this.props.step) {
+      // check if the 'prevStep' child still exists
+      const prevStep = this.props.step
 
-      React.Children.forEach(next_props.children, (child) => {
+      React.Children.forEach(nextProps.children, (child) => {
         if (React.isValidElement(child)) {
-          if (child.props.step === prev_step) {
-            this.setState({prev_step})
+          if (child.props.step === prevStep) {
+            this.setState({prevStep})
             return
           }
         }
@@ -30,20 +30,20 @@ export default class Steps extends Component {
   }
 
   handlePaneAnimateOutEnd() {
-    this.setState({prev_step: null})
+    this.setState({prevStep: null})
   }
 
   renderStep = (child, i) => {
     const index = i + 1 // start from 1
-    const prev_step = this.state.prev_step
-    const is_already_active = prev_step && child.props.step === prev_step
+    const prevStep = this.state.prevStep
+    const is_already_active = prevStep && child.props.step === prevStep
 
     return React.cloneElement(
       child,
       {
         key: child.key ? child.key : index,
         step: index,
-        active: !prev_step && index === this.props.step,
+        active: !prevStep && index === this.props.step,
         onAnimateOutEnd: is_already_active ? this.handlePaneAnimateOutEnd : null,
       }
     )
