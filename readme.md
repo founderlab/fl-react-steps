@@ -1,12 +1,5 @@
 # Step header and content components with which to make a multi step form
 
-
-
-Changes: 
--------------
-- 0.1.0: Created
-
-
 Usage: 
 -------------
 
@@ -65,7 +58,7 @@ headings: A list of titles for your steps
 onChangeStep: Called when a step is clicked
 className: Classes to give the step header wrapper node. Defaults to 'step-header clearfix'
 stepClassName: Extra classes to give the individual header nodes
-step_class: Alias of stepClassName
+stepClass: Alias of stepClassName
 ```
 
 Steps props: 

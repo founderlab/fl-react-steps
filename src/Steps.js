@@ -36,7 +36,7 @@ export default class Steps extends Component {
   renderStep = (child, i) => {
     const index = i + 1 // start from 1
     const prevStep = this.state.prevStep
-    const is_already_active = prevStep && child.props.step === prevStep
+    const isAlreadyActive = prevStep && child.props.step === prevStep
 
     return React.cloneElement(
       child,
@@ -44,7 +44,7 @@ export default class Steps extends Component {
         key: child.key ? child.key : index,
         step: index,
         active: !prevStep && index === this.props.step,
-        onAnimateOutEnd: is_already_active ? this.handlePaneAnimateOutEnd : null,
+        onAnimateOutEnd: isAlreadyActive ? this.handlePaneAnimateOutEnd : null,
       }
     )
   }

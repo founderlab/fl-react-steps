@@ -9,32 +9,32 @@ export default class StepHeader extends Component {
     headings: PropTypes.array.isRequired,
     step: PropTypes.number.isRequired,
     className: PropTypes.string,
-    step_class: PropTypes.string,
+    stepClass: PropTypes.string,
     stepClassName: PropTypes.string,
   }
 
   static defaultProps = {
     step: 1,
     className: 'clearfix',
-    step_class: '',
+    stepClass: '',
     stepClassName: '',
   }
 
   constructor() {
     super()
-    this.state = {max_step: 1}
+    this.state = {maxStep: 1}
   }
 
   componentWillReceiveProps(newProps) {
-    if (newProps.step > this.state.max_step) this.setState({max_step: newProps.step})
+    if (newProps.step > this.state.maxStep) this.setState({maxStep: newProps.step})
   }
 
-  stepEnabled = step => step <= Math.max(this.state.max_step, this.props.step)
+  stepEnabled = step => step <= Math.max(this.state.maxStep, this.props.step)
   handleStepFn = step => () => this.stepEnabled(step) && this.props.onChangeStep(step)
 
   render() {
     const {step, headings} = this.props
-    const step_class = this.props.stepClassName || this.props.step_class
+    const stepClass = this.props.stepClassName || this.props.stepClass
 
     return (
       <div className={classNames(this.props.className, 'step-header')}>
@@ -49,7 +49,7 @@ export default class StepHeader extends Component {
           }
 
           return (
-            <div key={index} className={classNames(classes, step_class)} onClick={this.handleStepFn(index)}>
+            <div key={index} className={classNames(classes, stepClass)} onClick={this.handleStepFn(index)}>
               <div className="number">{index}</div>
               <div className="text">
                 <div className="text-inner">

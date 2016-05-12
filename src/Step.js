@@ -16,25 +16,25 @@ export default class Step extends Component {
   constructor() {
     super()
     this.state = {
-      animate_in: false,
-      animate_out: false,
+      animateIn: false,
+      animateOut: false,
     }
   }
 
   componentWillReceiveProps(nextProps) {
-    if (!this.state.animate_in && nextProps.active && !this.props.active) {
-      this.setState({animate_in: true})
+    if (!this.state.animateIn && nextProps.active && !this.props.active) {
+      this.setState({animateIn: true})
     }
-    else if (!this.state.animate_out && !nextProps.active && this.props.active) {
-      this.setState({animate_out: true})
+    else if (!this.state.animateOut && !nextProps.active && this.props.active) {
+      this.setState({animateOut: true})
     }
   }
 
   componentDidUpdate() {
-    if (this.state.animate_in) {
+    if (this.state.animateIn) {
       setTimeout(this.startAnimateIn, 0)
     }
-    if (this.state.animate_out) {
+    if (this.state.animateOut) {
       TransitionEvents.addEndEventListener(ReactDOM.findDOMNode(this), this.stopAnimateOut)
     }
   }
@@ -44,20 +44,20 @@ export default class Step extends Component {
   }
 
   startAnimateIn = () => {
-    this.setState({animate_in: false})
+    this.setState({animateIn: false})
   }
 
   stopAnimateOut = () => {
-    this.setState({animate_out: false})
+    this.setState({animateOut: false})
     if (this.props.onAnimateOutEnd) this.props.onAnimateOutEnd()
   }
 
   render() {
     const classes = {
       fade: true,
-      active: this.props.active || this.state.animate_out,
-      in: this.props.active && !this.state.animate_in,
-      hidden: !this.props.active && !this.state.animate_out,
+      active: this.props.active || this.state.animateOut,
+      in: this.props.active && !this.state.animateIn,
+      hidden: !this.props.active && !this.state.animateOut,
     }
 
     return (
