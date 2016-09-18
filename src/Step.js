@@ -61,7 +61,7 @@ export default class Step extends Component {
     }
 
     return (
-      <div {...this.props}
+      <div
         role="tabpanel"
         aria-hidden={!this.props.active}
         className={classNames(this.props.className, classes)}
