@@ -13,17 +13,19 @@ export default class Steps extends Component {
     this.state = {prevStep: null}
   }
 
+  children = _props => {
+    const props = _props || this.props
+    return _.filter(_.compact(React.Children.toArray(props.children)), c => React.isValidElement(c))
+  }
+
   componentWillReceiveProps(nextProps) {
     if (nextProps.step !== null && nextProps.step !== this.props.step) {
       // check if the 'prevStep' child still exists
       const prevStep = this.props.step
 
-      React.Children.forEach(nextProps.children, (child) => {
-        if (React.isValidElement(child)) {
-          if (child.props.step === prevStep) {
-            this.setState({prevStep})
-            return
-          }
+      _.forEach(this.children(nextProps), child => {
+        if (child.props.step === prevStep) {
+          this.setState({prevStep})
         }
       })
     }
@@ -50,11 +52,9 @@ export default class Steps extends Component {
   }
 
   render() {
-    const {children} = this.props
-    const childrenArray = React.Children.toArray(children)
     return (
       <div>
-        {_.map(_.compact(childrenArray), this.renderStep)}
+        {_.map(this.children()), this.renderStep)}
       </div>
     )
   }
