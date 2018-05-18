@@ -1,4 +1,4 @@
-## This package has moved to the [Frameworkstein repository](https://github.com/founderlab/frameworkstein/tree/master/packages/fetch-component-data)
+## This package has moved to the [Frameworkstein repository](https://github.com/founderlab/frameworkstein/tree/master/packages/fl-react-steps)
 
 
 -------------------------------------------------------------------------------------------------------------------------
